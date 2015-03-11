@@ -1,4 +1,4 @@
-# XSR - eXtremely Simple REST
+# XSR - eXtremely Simple REST client
 
 XSR is an extremely simple REST client aimed to use against JSON/REST APIs.
 
@@ -36,7 +36,7 @@ resp.success?
 resp.body
 #=> JSON response as a Ruby Hash Object
 ```
-###Valid HTTP verbs
+###Supported HTTP verbs
 Implemented verbs are GET, POST, PUT and DELETE. To change the verb simply invoke the corresponding method:
 ####HTTP GET
 This will make a HTTP GET request to http://api.something.io
@@ -76,6 +76,29 @@ This will make a HTTP GET request to http://api.somthing.io passing 'Some-Header
 ``` ruby
 resp = client.get('http://api.something.io', header: {some_header: 'some_value'})
 ```
+
+###Response object
+HTTP response comes in the form of a ```XSR::Response``` object:
+``` ruby
+resp = client.post('http://api.something.io')
+
+resp.success?
+#=> Response status code is 2xx
+
+resp.bad_request?
+#=> Response status code is 403
+
+resp.not_found?
+#=> Response status code is 404
+
+resp.server_error?
+#=> Response status code is 500
+
+resp.body
+#=> JSON response as a Ruby Hash object
+```
+
 ##What's next?
 I'm not planning to add more features right now, but feel free to fork this repo and add any extra functionality you consider that should be included. Please, submit a PR with proposed changes or fixes.
 Just keep in mind a minimalist paradigm (https://youtu.be/tXVr2E1vfmk).
+
