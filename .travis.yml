@@ -6,6 +6,6 @@ rvm:
   - rbx-2
 install:
   - gem install multi_json
-  - gem install cutest
+  - gem install cutest -v 1.1.3
 script:
   RUBYLIB=./lib cutest test/*_test.rb
