@@ -1,12 +1,11 @@
 language: ruby
 rvm:
-  - 2.1.0
+  - 2.0.0
+  - 1.9.3
   - jruby-19mode
   - rbx-2
-  - ruby-head
-  - jruby-head
-branches:
-  only:
-    - master
+install:
+  - gem install multi_json
+  - gem install cutest
 script:
   RUBYLIB=./lib cutest test/*_test.rb
