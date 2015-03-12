@@ -1,5 +1,13 @@
 # XSR - eXtremely Simple REST client
 
+[![Gem Version](https://badge.fury.io/rb/xsr.svg)][gem]
+[![Dependency Status](https://gemnasium.com/matiasow/xsr.svg)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/matiasow/xsr/badges/gpa.svg)][codeclimate]
+
+[gem]: http://badge.fury.io/rb/xsr
+[gemnasium]: https://gemnasium.com/matiasow/xsr
+[codeclimate]: https://codeclimate.com/github/matiasow/xsr
+
 XSR is an extremely simple REST client aimed to use against JSON/REST APIs.
 
 ## Installation
@@ -101,4 +109,3 @@ resp.body
 ##What's next?
 I'm not planning to add more features right now, but feel free to fork this repo and add any extra functionality you consider that should be included. Please, submit a PR with proposed changes or fixes.
 Just keep in mind a minimalist paradigm (https://youtu.be/tXVr2E1vfmk).
-
