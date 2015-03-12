@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.1.0
+  - jruby-19mode
+  - rbx-2
+  - ruby-head
+  - jruby-head
+branches:
+  only:
+    - master
+script:
+  RUBYLIB=./lib cutest test/*_test.rb
