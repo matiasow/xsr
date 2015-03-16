@@ -33,8 +33,8 @@ module XSR
 
       # Set headers
       req['Content-Type'] = 'application/json'
-      @base_header && @base_header.each{ |k,v| req[k] = v }
-      options[:header] && options[:header].each{ |k,v| req[k] = v }
+      @base_header && @base_header.each{ |k,v| req[k.to_s] = v }
+      options[:header] && options[:header].each{ |k,v| req[k.to_s] = v }
 
       # Set body
       req.body = options[:body] && MultiJson.dump( options[:body] )
