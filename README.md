@@ -43,7 +43,7 @@ And then invoke a service:
 resp = client.get('http://api.something.io')
 resp.success?
 #=> true
-resp.body
+resp.json_body
 #=> JSON response as a Ruby Hash Object
 ```
 ###Supported HTTP verbs
@@ -104,8 +104,11 @@ resp.not_found?
 resp.server_error?
 #=> Response status code is 500
 
-resp.body
+resp.json_body
 #=> JSON response as a Ruby Hash object
+
+resp.body
+#-> plain HTTP response string
 ```
 
 ##What's next?

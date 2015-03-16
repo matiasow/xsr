@@ -23,9 +23,7 @@ module XSR
     end
 
     def body
-      if self.success?
-        @http_response.body && MultiJson.load( @http_response.body, symbolize_keys: true )
-      end
+        MultiJson.load @http_response.body, symbolize_keys: true
     end
   end
 end
