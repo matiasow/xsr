@@ -4,6 +4,7 @@
 [![Dependency Status](https://gemnasium.com/matiasow/xsr.svg)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/matiasow/xsr/badges/gpa.svg)][codeclimate]
 [![Build Status](https://travis-ci.org/matiasow/xsr.svg?branch=master)][travis]
+[![Test Coverage](https://codeclimate.com/github/matiasow/xsr/badges/coverage.svg)][codeclimate]
 
 [gem]: http://badge.fury.io/rb/xsr
 [gemnasium]: https://gemnasium.com/matiasow/xsr
