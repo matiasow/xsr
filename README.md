@@ -115,3 +115,7 @@ resp.http_response
 ##What's next?
 I'm not planning to add more features right now, but feel free to fork this repo and add any extra functionality you consider that should be included. Please, submit a PR with proposed changes or fixes.
 Just keep in mind a minimalist paradigm (https://youtu.be/tXVr2E1vfmk).
+
+##License
+
+XSR is released under the [MIT License](http://www.opensource.org/licenses/MIT).
