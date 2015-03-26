@@ -1,11 +1,12 @@
 module XSR
-  class Response 
+  # Response object is created by Client after a HTTP call
+  class Response
     attr_reader :http_response
 
     def initialize(http_response)
       @http_response = http_response
     end
-    
+
     def success?
       @http_response.is_a? Net::HTTPSuccess
     end
@@ -23,7 +24,7 @@ module XSR
     end
 
     def body
-        MultiJson.load @http_response.body, symbolize_keys: true
+      MultiJson.load @http_response.body, symbolize_keys: true
     end
   end
 end

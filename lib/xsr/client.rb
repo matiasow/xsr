@@ -1,4 +1,5 @@
 module XSR
+  # XSR Client class, holding methods to handle HTTP requests
   class Client
     attr_accessor :base_url
     attr_accessor :default_header
@@ -24,20 +25,22 @@ module XSR
       request_with_data(path, options) { |uri| Net::HTTP::Get.new(uri.to_s) }
     end
 
-  private
+    private
+
     def request_with_data(path, options = {})
-      args = options[:args] && URI::encode( options[:args].map{|k,v| "#{k}=#{v}"}.join('&').to_s )
-      uri = URI( @base_url.to_s + path.to_s + '?' + args.to_s )
+      # Set URI & arguments
+      args = options[:args] && URI.encode(options[:args].map{ |k, v| "#{k}=#{v}" }.join('&').to_s)
+      uri = URI(@base_url.to_s + path.to_s + '?' + args.to_s)
 
       req = yield(uri)
 
       # Set headers
       req['Content-Type'] = 'application/json'
       @base_header && @base_header.each{ |k,v| req[k.to_s] = v }
-      options[:header] && options[:header].each{ |k,v| req[k.to_s] = v }
+      options[:header] && options[:header].each { |k, v| req[k.to_s] = v }
 
       # Set body
-      req.body = options[:body] && MultiJson.dump( options[:body] )
+      req.body = options[:body] && MultiJson.dump(options[:body])
 
       http_session = Net::HTTP.new(uri.host, uri.port)
 
@@ -46,7 +49,7 @@ module XSR
         http_session.verify_mode = OpenSSL::SSL::VERIFY_NONE
       end
 
-      XSR::Response.new( http_session.start{ |http| http.request(req) } )
+      XSR::Response.new http_session.start { |http| http.request(req) }
     end
   end
 end
