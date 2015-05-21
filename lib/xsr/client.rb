@@ -29,14 +29,14 @@ module XSR
 
     def request_with_data(path, options = {})
       # Set URI & arguments
-      args = options[:args] && URI.encode(options[:args].map{ |k, v| "#{k}=#{v}" }.join('&').to_s)
+      args = options[:args] && URI.encode(options[:args].map { |k, v| "#{k}=#{v}" }.join('&').to_s)
       uri = URI(@base_url.to_s + path.to_s + '?' + args.to_s)
 
       req = yield(uri)
 
       # Set headers
       req['Content-Type'] = 'application/json'
-      @base_header && @base_header.each{ |k,v| req[k.to_s] = v }
+      @base_header && @base_header.each { |k, v| req[k.to_s] = v }
       options[:header] && options[:header].each { |k, v| req[k.to_s] = v }
 
       # Set body
