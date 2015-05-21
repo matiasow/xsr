@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://github.com/matiasow/xsr'
   s.license     = 'MIT'
 
-  s.files       =  `git ls-files`.split('\n')
+  s.files       =  `git ls-files`.split("\n")
 
   s.add_dependency 'multi_json', '~> 1.11', '>= 1.11.0'
   s.add_development_dependency 'cutest', '~> 1.2', '>= 1.2.2'
