@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'xsr'
-  s.version     = '1.2.2'
+  s.version     = '1.3.0'
   s.summary     = 'XSR: eXtremely Simple REST Client'
   s.description = 'A very simple library to talk to a REST/JSON API'
   s.authors     = ['matiasow']
