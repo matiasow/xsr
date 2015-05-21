@@ -34,6 +34,12 @@ module ResponseTest
     assert res.unauthorized?
   end
 
+  test 'status 403 gets a Forbidden response' do
+    res = @client.get('/status/403')
+    assert !res.success?
+    assert res.forbidden?
+  end
+
   test 'status 404 gets a Not Found response' do
     res = @client.get('/status/404')
     assert !res.success?

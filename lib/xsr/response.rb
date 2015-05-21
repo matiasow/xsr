@@ -23,6 +23,10 @@ module XSR
       @http_response.is_a? Net::HTTPUnauthorized
     end
 
+    def forbidden?
+      @http_response.is_a? Net::HTTPForbidden
+    end
+
     def server_error?
       @http_response.is_a? Net::HTTPServerError
     end
