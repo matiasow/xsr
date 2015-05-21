@@ -19,6 +19,10 @@ module XSR
       @http_response.is_a? Net::HTTPNotFound
     end
 
+    def unauthorized?
+      @http_response.is_a? Net::HTTPUnauthorized
+    end
+
     def server_error?
       @http_response.is_a? Net::HTTPServerError
     end

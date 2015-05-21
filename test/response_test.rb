@@ -28,6 +28,12 @@ module ResponseTest
     assert res.bad_request?
   end
 
+  test 'status 401 gets an Unauthorized response' do
+    res = @client.get('/status/401')
+    assert !res.success?
+    assert res.unauthorized?
+  end
+
   test 'status 404 gets a Not Found response' do
     res = @client.get('/status/404')
     assert !res.success?
