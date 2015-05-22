@@ -52,7 +52,7 @@ module ClientTest
 
   test 'default headers are passed to request' do
     h = { 'Some-Header' => 'some_value' }
-    resp = XSR::Client.new(header: h).get('https://httpbin.org/headers')
+    resp = XSR::Client.new(header: h).get('http://httpbin.org/headers')
 
     assert resp.http_response.instance_of?(Net::HTTPOK)
 
@@ -68,11 +68,5 @@ module ClientTest
 
     argument = MultiJson.load(resp.http_response.body)['args']['some_arg']
     assert_equal argument, 'some_value'
-  end
-
-  test 'https request' do
-    resp = XSR::Client.new.get('https://httpbin.org/get')
-
-    assert resp.http_response.instance_of?(Net::HTTPOK)
   end
 end

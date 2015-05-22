@@ -3,10 +3,14 @@ module XSR
   class Client
     attr_accessor :base_url
     attr_accessor :default_header
+    attr_accessor :skip_cert_check
+    attr_accessor :ca_file
 
     def initialize(options = {})
       @base_url = options[:base_url]
       @base_header = options[:header]
+      @skip_cert_check = options[:skip_cert_check]
+      @ca_file = options[:ca_file]
     end
 
     def post(path, options = {})
@@ -46,7 +50,12 @@ module XSR
 
       if uri.scheme == 'https' # Requires SSL?
         http_session.use_ssl = true
-        http_session.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        if @skip_cert_check || options[:skip_cert_check]
+          http_session.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        else
+          http_session.ca_file = @ca_file || options[:ca_file]
+          http_session.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        end
       end
 
       XSR::Response.new http_session.start { |http| http.request(req) }
