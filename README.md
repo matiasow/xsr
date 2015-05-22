@@ -97,6 +97,12 @@ resp.success?
 #=> Response status code is 2xx
 
 resp.bad_request?
+#=> Response status code is 400
+
+resp.unauthorized?
+#=> Response status code is 401
+
+resp.forbidden?
 #=> Response status code is 403
 
 resp.not_found?
@@ -110,6 +116,21 @@ resp.body
 
 resp.http_response
 #-> Call http_response to get full Net::HTTPResponse object
+```
+
+### SSL considerations
+By default, XSR verifies the SSL certificate for the requested server. 
+
+To use a custom CA Root certificate set ```ca_file```
+```
+client = XSR::Client.new(ca_file: '/path/to/my_custom.pem')
+client.get('https://api.something.io/get')
+```
+
+In case you want to skip this verfication, set ```skip_cert_check```:
+```
+client = XSR::Client.new(skip_cert_check: true)
+client.get('https://api.something.io/get')
 ```
 
 ##What's next?
