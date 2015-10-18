@@ -7,3 +7,6 @@ test:
 console:
 	@echo Running console... && \
 	RUBYLIB=./lib irb -r xsr
+
+build:
+	gem build xsr.gemspec
