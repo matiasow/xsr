@@ -28,7 +28,7 @@ module ClientSSLTest
 
   test 'set custom invalid ca pem' do
     @client.ca_file = 'does_not_exist.pem'
-    
+
     assert_raise(OpenSSL::SSL::SSLError) do
       @client.get('/get')
     end
