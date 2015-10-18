@@ -10,6 +10,7 @@ module ResponseTest
   test 'status 200 gets a successful response' do
     res = @client.get('/status/200')
     assert res.success?
+    assert_equal res.status, '200'
   end
 
   test 'status 201 gets a successful response' do
@@ -44,12 +45,14 @@ module ResponseTest
     res = @client.get('/status/404')
     assert !res.success?
     assert res.not_found?
+    assert_equal res.status, '404'
   end
 
   test 'status 500 gets a Server Error response' do
     res = @client.get('/status/500')
     assert !res.success?
     assert res.server_error?
+    assert_equal res.status, '500'
   end
 
   test 'simple json response' do

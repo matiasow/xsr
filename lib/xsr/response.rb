@@ -31,6 +31,10 @@ module XSR
       @http_response.is_a? Net::HTTPServerError
     end
 
+    def status
+      @http_response.code
+    end
+
     def body
       MultiJson.load @http_response.body, symbolize_keys: true
     end
