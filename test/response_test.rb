@@ -7,6 +7,12 @@ module ResponseTest
     @client = XSR::Client.new(base_url: 'http://httpbin.org')
   end
 
+  test 'initialize' do
+    http_response = Net::HTTP.new('http://google.com')
+    @res = XSR::Response.new(http_response)
+    assert_equal @res.http_response, http_response
+  end
+
   test 'status 200 gets a successful response' do
     res = @client.get('/status/200')
     assert res.success?
