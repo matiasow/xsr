@@ -11,6 +11,3 @@ install:
   - gem install codeclimate-test-reporter
 script:
   RUBYLIB=./lib cutest test/*_test.rb
-addons:
-    code_climate:
-        repo_token: 997c1a404d29fc85ecc6b12047cce553b6cca6ac8382a50d158d788d4f1b0944
