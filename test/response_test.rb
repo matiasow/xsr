@@ -1,5 +1,8 @@
 require 'xsr'
+require "codeclimate-test-reporter"
 require_relative 'helper'
+
+CodeClimate::TestReporter.start
 
 # Tests for Response class
 module ResponseTest
