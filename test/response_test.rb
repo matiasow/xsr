@@ -76,4 +76,9 @@ module ResponseTest
     assert res.success?
     assert_equal res.body[:json], req
   end
+
+  test 'response initialize' do
+    res = XSR::Response.new('something')
+    assert_equal res.http_response, 'something'
+  end
 end
