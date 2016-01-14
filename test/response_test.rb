@@ -1,11 +1,6 @@
 require 'xsr'
 require_relative 'helper'
 
-if ENV['CODECLIMATE_REPO_TOKEN']
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
-end
-
 # Tests for Response class
 module ResponseTest
   prepare do
