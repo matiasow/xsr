@@ -1,5 +1,7 @@
 # XSR - eXtremely Simple REST client
 
+[![Join the chat at https://gitter.im/matiasow/xsr](https://badges.gitter.im/matiasow/xsr.svg)](https://gitter.im/matiasow/xsr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Gem Version](https://badge.fury.io/rb/xsr.svg)][gem]
 [![Dependency Status](https://gemnasium.com/matiasow/xsr.svg)][gemnasium]
 [![Code Climate](https://codeclimate.com/github/matiasow/xsr/badges/gpa.svg)][codeclimate]
