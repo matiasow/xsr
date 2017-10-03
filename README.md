@@ -96,14 +96,14 @@ req = { some_key: some_value, other_key: [1,2,3] }
 client.post('http://api.something.io', body: req)
 ```
 
-###Using HTTP headers
+### Using HTTP headers
 
 This will make a HTTP GET request to http://api.somthing.io passing 'Some-Header: Some-Value' in the HTTP headers
 ```ruby
 resp = client.get('http://api.something.io', header: {some_header: 'some_value'})
 ```
 
-###Response object
+### Response object
 
 HTTP response comes in the form of a ```XSR::Response``` object:
 ```ruby
